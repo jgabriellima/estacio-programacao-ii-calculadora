@@ -409,9 +409,28 @@ public class Calculadora extends javax.swing.JFrame {
             if (this.isOperador(formula.charAt(i))) {
                 operadores.add(formula.charAt(i));
             } else {
-  valores.add(Double.parseDouble(String.valueOf(formula.charAt(i))));
+                valores.add(Double.parseDouble(String.valueOf(formula.charAt(i))));
             }
         }
+    }
+    
+    private Double calcular(Double valor1, Double valor2, Character operacao) {
+        Double resultado = 0.0;
+        switch(operacao) {
+            case '+':
+                resultado=valor1+valor2;
+                break;
+            case '-':
+                resultado=valor1-valor2;
+                break;
+            case '*':
+                resultado=valor1*valor2;
+                break;
+            case '/':
+                resultado=valor1/valor2;
+                break;
+        }
+        return resultado;
     }
 
     private boolean isOperador(char value) {
