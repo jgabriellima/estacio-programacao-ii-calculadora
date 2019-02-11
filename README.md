@@ -12,3 +12,6 @@
 - Divisão
 
 Autor: Estacio
+
+Recomendação de leitura:
+http://rogerdudler.github.io/git-guide/
