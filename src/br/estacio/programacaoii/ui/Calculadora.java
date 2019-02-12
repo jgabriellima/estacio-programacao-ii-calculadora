@@ -412,22 +412,33 @@ public class Calculadora extends javax.swing.JFrame {
                 valores.add(Double.parseDouble(String.valueOf(formula.charAt(i))));
             }
         }
+        Double resultado = 0.0;
+        for (int i = 0; i < valores.size() - 1; i++) {
+            Double valor1 = valores.get(i);
+            if (i > 0) {
+                valor1 = resultado;
+            }
+            Double valor2 = valores.get(i + 1);
+            Character operador = operadores.get(i);
+            resultado = this.calcular(valor1, valor2, operador);
+        }
+        this.input_operacao.setText(String.valueOf(resultado));
     }
-    
+
     private Double calcular(Double valor1, Double valor2, Character operacao) {
         Double resultado = 0.0;
-        switch(operacao) {
+        switch (operacao) {
             case '+':
-                resultado=valor1+valor2;
+                resultado = valor1 + valor2;
                 break;
             case '-':
-                resultado=valor1-valor2;
+                resultado = valor1 - valor2;
                 break;
             case '*':
-                resultado=valor1*valor2;
+                resultado = valor1 * valor2;
                 break;
             case '/':
-                resultado=valor1/valor2;
+                resultado = valor1 / valor2;
                 break;
         }
         return resultado;
